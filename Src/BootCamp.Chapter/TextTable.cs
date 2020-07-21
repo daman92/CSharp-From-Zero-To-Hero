@@ -36,15 +36,15 @@ namespace BootCamp.Chapter
         /// </summary>
         public static string Build(string message, int padding)
         {
-	        string padded = message.PadLeft(message.Length + padding);
-            padded = padded.PadRight(padded.Length + padding);
-            
+	        //string padded = message.PadLeft(message.Length + padding);
+           // padded = padded.PadRight(padded.Length + padding);
+            int maxLineLength = LineLength(message);
 
-            Header(padded);
-            PadAboveBelow(padded, padding);
-            Console.WriteLine($"|{padded}|");
-            PadAboveBelow(padded, padding);
-            Header(padded);
+            HeaderFooter(padding, maxLineLength);
+            PadAboveBelow(maxLineLength, padding);
+            PadLeftRight(message, padding);
+            PadAboveBelow(maxLineLength, padding);
+            HeaderFooter(padding, maxLineLength);
 
 
             //  Console.WriteLine("|${padded}|);
@@ -56,30 +56,42 @@ namespace BootCamp.Chapter
             return "";
         }
 
-        public static void Header(string message)
+        public static void HeaderFooter(int padding, int lineLength)
         {
 	        string border = "+";
-            
-	        
-	         for (int i = 0; i < LineLength(message); i++)
-	         {
-		        border += "-";
-			 }
-	        
-			 border += "+";
+
+            border = border.PadRight(lineLength + (padding * 2), '-') + "+";
+//	         for (int i = 0; i < LineLength(message); i++)
+//	         {
+//		        border += "-";
+//			 }
+//	        
+//			 border += "+";
 			 Console.WriteLine(border);
         }
 
-        public static void PadAboveBelow (string paddedWord, int padding)
-        { 
-	        
-	        
-	        
-	        //string boarder = "|";
-	       // for (int i = 0; i < padding; i++)
-	       // {
-		   //     Console.WriteLine(boarder.PadRight(paddedWord.Length+1) + boarder);
-	       // }
+        public static void PadAboveBelow (int maxLineLength, int padding)
+        {
+            int paddedLine = maxLineLength + (padding * 2);
+            string boarder = "|".PadRight(paddedLine) + "|";
+
+
+            //string boarder = "|";
+            // for (int i = 0; i < padding; i++)
+            // {
+            //     Console.WriteLine(boarder.PadRight(paddedWord.Length+1) + boarder);
+            // }
+        }
+
+        public static void PadLeftRight(string message, int padding)
+        {
+            string[] messageLines = message.Split(Environment.NewLine);
+
+            for (int i = 0; i < messageLines.Length; i++)
+            {
+              Console.WriteLine($"|{messageLines[i].PadLeft(padding).PadRight(padding)}|");
+            }
+
         }
 
         public static int LineLength(string message)
@@ -88,15 +100,22 @@ namespace BootCamp.Chapter
 
 	        int maxLength = 0;
 
-	        for (int i = 0; i < messageLines.Length - 1; i++)
+	        for (int i = 0; i < messageLines.Length; i++)
 	        {
 		        if (messageLines[i].Length > maxLength)
 		        {
-			        maxLength = messageLines.Length;
+			        maxLength = messageLines[i].Length;
 		        }
 	        }
 	        
 	        return maxLength;
+        }
+
+        public static int LineCount(string message)
+        {
+            string[] messageLines = message.Split(Environment.NewLine);
+
+            return messageLines.Length;
         }
     }
 }
