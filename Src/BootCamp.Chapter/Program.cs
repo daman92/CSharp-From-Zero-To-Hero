@@ -8,7 +8,7 @@ namespace BootCamp.Chapter
         static void Main(string[] args)
         {
 
-	        TextTable.Build($"Hello{Environment.NewLine}World!", 1);
+	        TextTable.Build($"End{Environment.NewLine}THisWorld!", 1);
 	        // Print each of the statistical output using Text Table with padding 3:
 	        // - FindHighestBalanceEver
 	        // - FindPersonWithBiggestLoss
