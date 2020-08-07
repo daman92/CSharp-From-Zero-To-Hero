@@ -43,7 +43,9 @@ namespace BootCamp.Chapter
         /// </summary>
         public Item[] GetItems()
         {
-            return new Item[0];
+
+
+                return new Item[0];
         }
 
         /// <summary>
