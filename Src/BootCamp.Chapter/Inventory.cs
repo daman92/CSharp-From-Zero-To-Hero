@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BootCamp.Chapter
 {
@@ -49,13 +51,22 @@ namespace BootCamp.Chapter
         /// </summary>
         public void RemoveItem(Item item)
         {
-            var newItems = new Item[_items.Length - 2];
+            var newItems = new List<Item>(); 
 
             for (int i = 0; i < _items.Length -1; i++)
             {
-                
+                if (!_items.Contains(item))
+                {
+                    return;
+                }
+
+                if (!item.GetName().Equals(_items[i].GetName()))
+                {
+                    newItems.Add(_items[i]);
+                }
             }
 
+            _items = newItems.ToArray();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace BootCamp.Chapter
     /// Player should not be able to take items if already at maximum weight.
     /// Player should expose TotalAttack, TotalDefense stats.
     /// </summary>
-    public class Player
+    public class Player : Inventory
     {
         /// <summary>
         /// Everyone can carry this much weight at least.
@@ -41,33 +41,36 @@ namespace BootCamp.Chapter
         /// <summary>
         /// Gets all items from player's inventory
         /// </summary>
-        public Item[] GetItems()
+        /*public Item[] GetItems()
         {
 
 
                 return new Item[0];
-        }
+        
+        }*/
 
         /// <summary>
         /// Adds item to player's inventory
         /// </summary>
-        public void AddItem(Item item)
+        /*public void AddItem(Item item)
         {
-        }
+       
+    } */
 
-        public void Remove(Item item)
+        /*public void Remove(Item item)
         {
 
-        }
+        
+    }*/
 
         /// <summary>
         /// Gets items with matching name.
         /// </summary>
         /// <param name="name"></param>
-        public Item[] GetItems(string name)
+/*        public Item[] GetItems(string name)
         {
             return new Item[0];
-        }
+        }*/
 
         #region Extra challenge: Equipment
         // Player has equipment.

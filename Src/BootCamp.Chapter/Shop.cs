@@ -1,6 +1,6 @@
 ﻿namespace BootCamp.Chapter
 {
-    public class Shop
+    public class Shop : Inventory
     {
         private decimal _money;
         public decimal GetMoney()
@@ -20,27 +20,23 @@
             _money = money;
         }
 
-        public Item[] GetItems()
-        {
-            return _inventory.GetItems();
-        }
 
         /// <summary>
         /// Adds item to the stock.
         /// If item of same name exists, does nothing.
         /// </summary>
-        public void Add(Item item)
+/*        public void Add(Item item)
         {
-        }
+        }*/
 
         /// <summary>
         /// Removes item from the stock.
         /// If item doesn't exist, does nothing.
         /// </summary>
         /// <param name="name"></param>
-        public void Remove(string name)
+/*        public void Remove(string name)
         {
-        }
+        }*/
 
         /// <summary>
         /// Player can sell items to a shop.
@@ -50,7 +46,11 @@
         /// <returns>Price of an item.</returns>
         public decimal Buy(Item item)
         {
-            return 0;
+            if (item.GetPrice() > GetMoney())
+            {
+                
+            }
+            
         }
 
         /// <summary>
