@@ -9,6 +9,20 @@ namespace BootCamp.Chapter
     {
         public DesktopComputer Assemble()
         {
+            var MacComputer = new DesktopComputer();
+
+            var body = MacComputer.GetBody();
+            var motherboard = MacComputer.GetMotherboard();
+            var cpu = MacComputer.GetCpu();
+            var ram = MacComputer.GetRam();
+            var harddrive = MacComputer.GetHard();
+            var gpu = MacComputer.GetGpu();
+            
+
+            
+
+
+
             return new DesktopComputer();
         }
     }

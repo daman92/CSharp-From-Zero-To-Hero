@@ -26,8 +26,8 @@
             return _gpu;
         }
 
-        private HardDisk _hard;
-        public HardDisk GetHard()
+        private MacHardDisk _hard;
+        public MacHardDisk GetHard()
         {
             return _hard;
         }
